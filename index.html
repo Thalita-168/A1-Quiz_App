@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="/img/icon.jpg">
+    <title>Quizora</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-    
+    <!-- Login/Role Selection Screen -->
+    <div class="login-box active" id="loginFormBox">
+        <h2>Login</h2>
+        <div class="input-box">
+            <input type="text" id="email" name="email" autocomplete="off">
+            <label>Email</label>
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+        </div>
+        <div class="input-box">
+            <input type="password" id="password" name="password" autocomplete="new-password">
+            <label>Password</label>
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+        </div>
+
+        <!-- Role Selection inside same form -->
+        <div class="role-selection-inline">
+            <label>
+                <input type="radio" name="role" value="admin" checked> Admin
+            </label>
+            <label>
+                <input type="radio" name="role" value="user"> User
+            </label>
+        </div>
+
+        <div class="remember-forgot">
+            <label><input type="checkbox"> Remember me</label>
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button id="loginBtn">Login</button>
+        <div class="register-link">
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+    </div>
+
+    <script src="script/login.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/icon.jpg">
+    <title>Quizora</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Admin Dashboard -->
+    <div id="adminScreen" class="screen active">
+        <div class="admin-container">
+            <header class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </header>
+
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="switchAdminTab('create')">Create Quiz</button>
+                <button class="tab-btn" onclick="switchAdminTab('manage')">Manage Quizzes</button>
+                <button class="tab-btn" onclick="switchAdminTab('scores')">View Scores</button>
+            </div>
+
+            <!-- Create Quiz Tab -->
+            <div id="createTab" class="admin-tab active">
+                <div class="quiz-form">
+                    <div class="form-header" id="formHeader" style="display: none;">
+                        <h3>Editing Quiz</h3>
+                        <button onclick="cancelEdit()" class="btn-secondary">Cancel Edit</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quiz Title</label>
+                        <input type="text" id="quizTitle" placeholder="Enter quiz title">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Time Limit (minutes)</label>
+                        <input type="number" id="quizTime" placeholder="Enter time in minutes" min="1">
+                    </div>
+
+                    <div class="questions-container" id="questionsContainer">
+                        <h3>Questions</h3>
+                        <!-- Questions will be added here dynamically -->
+                    </div>
+
+                    <button onclick="addQuestion()" class="btn-primary add-question-btn">+ Add Question</button>
+                    <button onclick="saveQuiz()" class="btn-success save-quiz-btn">Save Quiz</button>
+                </div>
+            </div>
+
+            <!-- Manage Quizzes Tab -->
+            <div id="manageTab" class="admin-tab">
+                <div id="quizzesList" class="quizzes-list">
+                    <!-- Quizzes will be listed here -->
+                </div>
+            </div>
+
+            <!-- View Scores Tab -->
+            <div id="scoresTab" class="admin-tab">
+                <div id="scoresList" class="scores-container">
+                    <!-- Scores will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script/script.js"></script>
+    <script src="../script/Admin_Dashboard.js"></script>
+</body>
+
+</html>

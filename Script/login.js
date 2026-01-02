@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // ===============================
-  // Clear email and password
+  // Clear inputs on page load
   // ===============================
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
@@ -33,50 +33,50 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===============================
   const loginBtn = document.getElementById("loginBtn");
 
-  if (!loginBtn) return;
+  if (loginBtn) {
+    loginBtn.addEventListener("click", function () {
 
-  loginBtn.addEventListener("click", function () {
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
 
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+      if (!email || !password) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please type your email and password!",
+        });
+        return;
+      }
 
-    if (!email || !password) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please type your email and password!",
-      });
-      return;
-    }
+      const roleElement = document.querySelector('input[name="role"]:checked');
 
-    const roleElement = document.querySelector('input[name="role"]:checked');
+      if (!roleElement) {
+        Swal.fire({
+          icon: "error",
+          title: "Role Required",
+          text: "Please choose Admin or User",
+        });
+        return;
+      }
 
-    if (!roleElement) {
-      Swal.fire({
-        icon: "error",
-        title: "Role Required",
-        text: "Please choose Admin or User",
-      });
-      return;
-    }
+      const role = roleElement.value;
 
-    const role = roleElement.value;
+      // ===============================
+      // Save login state
+      // ===============================
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userRole", role);
 
-    // ===============================
-    // Save login state (IMPORTANT)
-    // ===============================
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userRole", role);
-
-    // ===============================
-    // Redirect (VERCEL SAFE)
-    // ===============================
-    if (role === "admin") {
-      window.location.href = "/roles/admin.html";
-    } else {
-      window.location.href = "/roles/user.html";
-    }
-  });
+      // ===============================
+      // Redirect
+      // ===============================
+      if (role === "admin") {
+        window.location.href = "/roles/admin.html";
+      } else {
+        window.location.href = "/roles/user.html";
+      }
+    });
+  }
 
 });

@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const role = localStorage.getItem("userRole");
+
+  if (isLoggedIn !== "true" || role !== "user") {
+    window.location.href = "/index.html";
+  }
+});
+
 // Load available quizzes for user
 function loadAvailableQuizzes() {
   const quizzes = JSON.parse(localStorage.getItem(STORAGE.QUIZZES)) || [];

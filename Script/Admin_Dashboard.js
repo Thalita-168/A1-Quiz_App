@@ -1,4 +1,12 @@
 // Load quizzes list for admin
+document.addEventListener("DOMContentLoaded", function () {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const role = localStorage.getItem("userRole");
+
+  if (isLoggedIn !== "true" || role !== "admin") {
+    window.location.href = "/index.html";
+  }
+});
 function loadQuizzesList() {
   const quizzes = JSON.parse(localStorage.getItem(STORAGE.QUIZZES)) || [];
   const container = document.getElementById("quizzesList");

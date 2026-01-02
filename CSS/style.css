@@ -115,7 +115,7 @@ h2 {
 .input-box .icon {
   position: absolute;
   right: 8px;
-  color: black;
+  color: var(--primary);
   font-size: 1.2em;
   line-height: 50px;
   transition: 0.3s ease;

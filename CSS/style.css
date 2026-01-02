@@ -91,6 +91,7 @@ h2 {
   font-size: 1em;
   color: var(--text);
   padding: 0 35px 0 5px;
+  color: black;
 }
 
 .input-box label {
@@ -131,6 +132,7 @@ h2 {
   font-size: 0.9em;
   margin-bottom: 20px;
   color: var(--text);
+  color: black;
 }
 
 .remember-forgot a {
@@ -196,6 +198,7 @@ h2 {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  color: black;
 }
 
 .role-selection-inline input[type="radio"] {
@@ -1048,5 +1051,12 @@ h2 {
 
   h2 {
     font-size: 1.75em;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-box {
+    width: 90%;
+    padding: 30px 20px;
   }
 }

@@ -8,13 +8,14 @@
     <title>Quizora</title>
     <link rel="stylesheet" href="CSS/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 </head>
 
 <body>
     <!-- Login/Role Selection Screen -->
     <div class="login-box active" id="loginFormBox">
         <h2>Login</h2>
-        <div class="input-box">
+         <div class="input-box">
             <input type="text" id="email" name="email" autocomplete="off">
             <label>Email</label>
             <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
@@ -22,8 +23,13 @@
         <div class="input-box">
             <input type="password" id="password" name="password" autocomplete="new-password">
             <label>Password</label>
-            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+
+            <!-- Eye icon -->
+            <span class="icon" id="togglePassword" style="cursor: pointer;">
+                <ion-icon name="eye-off-outline"></ion-icon>
+            </span>
         </div>
+
 
         <!-- Role Selection inside same form -->
         <div class="role-selection-inline">

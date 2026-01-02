@@ -87,17 +87,22 @@
     </div>
 
     <!-- History Screen -->
-    <div id="historyScreen" class="screen">
+    <!-- History Details Screen -->
+    <div id="historyDetailScreen" class="screen">
         <div class="history-container">
             <header class="history-header">
-                <h2>Quiz History</h2>
-                <button onclick="backToQuizzes()" class="btn-secondary">Back</button>
+                <h2 id="historyQuizTitle">Quiz Details</h2>
+                <button onclick="showHistory()" class="btn-secondary">Back</button>
             </header>
-            <div id="historyList" class="history-list">
-                <!-- History items will be shown here -->
+
+            <p id="historyMeta" class="history-date"></p>
+
+            <div id="historyAnswerReview" class="answer-review">
+                <!-- Full answer review will be shown here -->
             </div>
         </div>
     </div>
+
 
     <script src="../script/script.js"></script>
     <script src="../script/user.js"></script>

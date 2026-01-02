@@ -368,9 +368,9 @@ function showHistoryDetails(result) {
   document.getElementById("historyQuizTitle").textContent = result.quizTitle;
 
   const date = new Date(result.date);
-  document.getElementById("historyMeta").textContent = `Score: ${
-    result.score
-  }/${result.total} (${result.percentage}%) • ${date.toLocaleString()}`;
+  document.getElementById(
+    "historyMeta"
+  ).textContent = `Score: ${result.score}/${result.total} (${result.percentage}%) • ${date.toLocaleString()}`;
 
   const container = document.getElementById("historyAnswerReview");
   container.innerHTML = "";

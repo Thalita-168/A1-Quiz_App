@@ -321,12 +321,14 @@ function showHistory() {
       '<p style="color: var(--text-secondary);">No quiz history yet.</p>';
   } else {
     container.innerHTML = "";
-    results.reverse().forEach((result) => {
+    // Reverse to show latest first
+    results.slice().reverse().forEach((result, index) => {
       const date = new Date(result.date);
       const historyDiv = document.createElement("div");
       historyDiv.className = "history-item";
       historyDiv.style.cursor = "pointer";
 
+      // Click to show details
       historyDiv.onclick = () => {
         showHistoryDetails(result);
       };
@@ -343,26 +345,33 @@ function showHistory() {
       dateP.className = "history-date";
       dateP.textContent = date.toLocaleString();
 
-      // Append title and date to infoDiv
       infoDiv.append(title, dateP);
 
-      // History score container
       const scoreDiv = document.createElement("div");
       scoreDiv.className = "history-score";
 
-      // Percentage
       const percentageDiv = document.createElement("div");
       percentageDiv.className = "history-percentage";
       percentageDiv.textContent = result.percentage + "%";
 
-      // Actual score
       const scoreTextDiv = document.createElement("div");
       scoreTextDiv.textContent = `${result.score}/${result.total}`;
 
-      // Append percentage and score to scoreDiv
       scoreDiv.append(percentageDiv, scoreTextDiv);
 
-      // Append infoDiv and scoreDiv to historyDiv
+      // Remove button
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "Remove";
+      removeBtn.className = "history-remove-btn";
+      removeBtn.onclick = (e) => {
+        e.stopPropagation(); // Prevent showing details
+        // Remove this result from the array
+        results.splice(results.length - 1 - index, 1); // Adjust index because of reverse
+        localStorage.setItem(STORAGE.RESULTS, JSON.stringify(results));
+        showHistory(); // Refresh list
+      };
+
+      scoreDiv.appendChild(removeBtn);
       historyDiv.append(infoDiv, scoreDiv);
       container.appendChild(historyDiv);
     });
@@ -370,6 +379,7 @@ function showHistory() {
 
   showScreen("historyScreen");
 }
+
 function showHistoryDetails(result) {
   showScreen("historyDetailScreen");
 

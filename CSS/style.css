@@ -55,7 +55,7 @@ body {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.5s ease forwards;
   opacity: 0;
-  
+
 }
 
 @keyframes fadeIn {
@@ -268,7 +268,7 @@ h2 {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  
+
 }
 
 .tab-btn.active {
@@ -318,7 +318,7 @@ h2 {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color:white;
+  color: white;
 }
 
 .form-group input,
@@ -410,7 +410,7 @@ h2 {
   border-radius: 8px;
   background: white;
   color: var(--text);
-  
+
 }
 
 .question-item textarea {
@@ -422,7 +422,7 @@ h2 {
   resize: vertical;
   font-family: inherit;
   color: var(--text);
-  
+
 }
 
 /* Options Container */
@@ -445,8 +445,9 @@ h2 {
 .options-container {
   margin-top: 1rem;
   color: #020202;
-  
+
 }
+
 .option-item {
   display: flex;
   gap: 0.5rem;
@@ -454,14 +455,16 @@ h2 {
   align-items: center;
   margin-top: 25px;
 }
+
 .option-item input[type="text"] {
   flex: 1;
   padding: 12px;
   border-radius: 10px;
   border-color: rgba(18, 18, 18, 0.182);
- 
+
 }
- .option-input {
+
+.option-input {
   flex: 1;
   padding: 0.90rem;
   border: 2px solid var(--border);
@@ -471,8 +474,8 @@ h2 {
   background-color: #b7b5b54b;
   width: 95%;
   gap: 50%;
-  
-} 
+
+}
 
 
 .correct-answer-label {
@@ -498,16 +501,16 @@ h2 {
 }
 
 .btn-primary {
-  
+
   color: white;
-  
+
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(229, 70, 102, 0.2);
-  
+
 }
 
 .btn-primary:disabled {
@@ -531,7 +534,7 @@ h2 {
 .btn-success {
   background: var(--success);
   color: white;
-  
+
 }
 
 .btn-success:hover {
@@ -545,8 +548,8 @@ h2 {
   color: white;
   width: 100%;
   margin: 1rem 0;
-  
-  
+
+
 }
 
 .save-quiz-btn {
@@ -790,7 +793,7 @@ h2 {
   text-align: center;
   border: 1px solid var(--border);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 .results-card h2 {
@@ -977,6 +980,29 @@ h2 {
   font-weight: 600;
   color: var(--primary);
 }
+
+.history-score button {
+  background-color: #e74c3c;
+  /* nice red for delete */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.history-score button:hover {
+  background-color: #c0392b;
+  /* darker red on hover */
+}
+
+.history-score button:active {
+  transform: scale(0.95);
+  /* slight click effect */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
 
@@ -1047,7 +1073,7 @@ h2 {
   .login-box {
     width: 95%;
     padding: 30px 20px;
-    
+
   }
 
   h2 {

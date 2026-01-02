@@ -116,6 +116,16 @@ function addQuestion() {
   addOptionBtn.textContent = "+ Add Option";
   addOptionBtn.type = "button";
 
+    addOptionBtn.style.backgroundColor = "blue";
+  addOptionBtn.style.color = "white";
+  addOptionBtn.style.border = "none";
+  addOptionBtn.style.padding = "5px 10px";
+  addOptionBtn.style.borderRadius = "7px";
+  addOptionBtn.style.cursor = "pointer";
+  addOptionBtn.style.fontSize = "14px";
+  addOptionBtn.style.marginTop = "30px";
+  addOptionBtn.style.marginRight = "85%";
+
   function createOption(text, index, removable = true) {
     const item = document.createElement("div");
     item.className = "option-item";

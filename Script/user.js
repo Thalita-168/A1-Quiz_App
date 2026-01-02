@@ -316,6 +316,11 @@ function showHistory() {
       const date = new Date(result.date);
       const historyDiv = document.createElement("div");
       historyDiv.className = "history-item";
+      historyDiv.style.cursor = "pointer";
+
+      historyDiv.onclick = () => {
+        showHistoryDetails(result);
+      };
 
       const infoDiv = document.createElement("div");
       infoDiv.className = "history-info";
@@ -355,4 +360,46 @@ function showHistory() {
   }
 
   showScreen("historyScreen");
+}
+function showHistoryDetails(result) {
+  showScreen("historyDetailScreen");
+
+  // Title & meta
+  document.getElementById("historyQuizTitle").textContent = result.quizTitle;
+
+  const date = new Date(result.date);
+  document.getElementById("historyMeta").textContent = `Score: ${
+    result.score
+  }/${result.total} (${result.percentage}%) • ${date.toLocaleString()}`;
+
+  const container = document.getElementById("historyAnswerReview");
+  container.innerHTML = "";
+
+  result.answers.forEach((item, index) => {
+    const reviewDiv = document.createElement("div");
+    reviewDiv.className = `review-item ${
+      item.isCorrect ? "correct" : "incorrect"
+    }`;
+
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "review-question";
+    questionDiv.textContent = `Q${index + 1}: ${item.question}`;
+
+    const userAnswerDiv = document.createElement("div");
+    userAnswerDiv.className = item.isCorrect
+      ? "review-answer correct-answer"
+      : "review-answer wrong-answer";
+    userAnswerDiv.textContent = `Your answer: ${item.userAnswer}`;
+
+    reviewDiv.append(questionDiv, userAnswerDiv);
+
+    if (!item.isCorrect) {
+      const correctAnswerDiv = document.createElement("div");
+      correctAnswerDiv.className = "review-answer correct-answer";
+      correctAnswerDiv.textContent = `Correct answer: ${item.correctAnswer}`;
+      reviewDiv.appendChild(correctAnswerDiv);
+    }
+
+    container.appendChild(reviewDiv);
+  });
 }

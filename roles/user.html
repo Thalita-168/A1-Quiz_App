@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/icon.jpg">
+    <title>Quizora</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- User Quiz Screen -->
+    <div id="userScreen" class="screen active">
+        <div class="user-container">
+            <header class="user-header">
+                <h1>Available Quizzes</h1>
+                <div class="user-actions">
+                    <button onclick="showHistory()" class="btn-secondary">My History</button>
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </div>
+            </header>
+
+            <div id="quizzesListUser" class="quizzes-grid">
+                <!-- Available quizzes will be shown here -->
+                <p class="loading-message">Loading quizzes...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Taking Screen -->
+    <div id="quizTakingScreen" class="screen">
+        <div class="quiz-taking-container">
+            <header class="quiz-header">
+                <h2 id="quizTitleDisplay"></h2>
+                <div class="timer-container">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span id="timer">00:00</span>
+                </div>
+            </header>
+
+            <div class="quiz-content">
+                <div class="question-progress">
+                    <span id="questionProgress">Question 1 of 5</span>
+                </div>
+
+                <div id="questionContainer" class="question-container">
+                    <!-- Current question will be displayed here -->
+                </div>
+
+                <div class="quiz-navigation">
+                    <button onclick="previousQuestion()" id="prevBtn" class="btn-secondary" disabled>Previous</button>
+                    <button onclick="nextQuestion()" id="nextBtn" class="btn-primary">Next</button>
+                    <button onclick="submitQuiz()" id="submitBtn" class="btn-success" style="display:none;">Submit
+                        Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="screen">
+        <div class="results-container">
+            <div class="results-card">
+                <h2>Quiz Completed!</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="scorePercentage">0%</span>
+                    </div>
+                    <p id="scoreText">You scored 0 out of 0</p>
+                </div>
+
+                <div id="answerReview" class="answer-review">
+                    <!-- Answer review will be shown here -->
+                </div>
+
+                <div class="results-actions">
+                    <button onclick="backToQuizzes()" class="btn-primary">Back to Quizzes</button>
+                    <button onclick="showHistory()" class="btn-secondary">View History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Screen -->
+    <!-- History Details Screen -->
+    <div id="historyDetailScreen" class="screen">
+        <div class="history-container">
+            <header class="history-header">
+                <h2 id="historyQuizTitle">Quiz Details</h2>
+                <button onclick="showHistory()" class="btn-secondary">Back</button>
+            </header>
+
+            <p id="historyMeta" class="history-date"></p>
+
+            <div id="historyAnswerReview" class="answer-review">
+                <!-- Full answer review will be shown here -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../script/script.js"></script>
+    <script src="../script/user.js"></script>
+</body>
+
+</html>

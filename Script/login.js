@@ -7,8 +7,32 @@ window.addEventListener("load", function () {
     if (passwordInput) passwordInput.value = "";
   }, 100);
 });
-// When click Login button
+
+// ===============================
+// Show / Hide Password (FIXED)
+// ===============================
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+if (togglePassword && passwordInput) {
+  togglePassword.addEventListener("click", function () {
+    const icon = this.querySelector("ion-icon");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      icon.setAttribute("name", "eye-outline");
+    } else {
+      passwordInput.type = "password";
+      icon.setAttribute("name", "eye-off-outline");
+    }
+  });
+}
+
+// ===============================
+// Login Button Click
+// ===============================
 document.getElementById("loginBtn").addEventListener("click", function () {
+
   // Get email and password
   let email = document.getElementById("email").value.trim();
   let password = document.getElementById("password").value.trim();
@@ -33,13 +57,14 @@ document.getElementById("loginBtn").addEventListener("click", function () {
     });
     return;
   }
+
   let role = roleElement.value;
 
-  // Save the email and role to localStorage (NOT sessionStorage)
+  // Save data to localStorage
   localStorage.setItem("userEmail", email);
   localStorage.setItem("userRole", role);
 
-  // Go to the correct page
+  // Redirect
   if (role === "admin") {
     window.location.href = "roles/admin.html";
   } else {
